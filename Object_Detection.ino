@@ -1,17 +1,11 @@
 #include "HUSKYLENS.h"
 #include <Wire.h>
-//#include <LiquidCrystal_I2C.h>
-
-//LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 HUSKYLENS huskylens;
 //HUSKYLENS green line >> SDA; blue line >> SCL
 void printResult(HUSKYLENSResult result);
 
 void setup() {
-  //lcd.init();
-  //lcd.backlight();
-
   Serial.begin(115200);
   Wire.begin();
   while (!huskylens.begin(Wire))
@@ -24,8 +18,6 @@ void setup() {
 }
 
 void loop() {
-  //lcd.clear();
-  //lcd.setCursor(0, 0);
   if (!huskylens.request()){
     Serial.println(F("Fail to request data from HUSKYLENS, recheck the connection!"));
   }
@@ -61,12 +53,5 @@ void printnilaiID(HUSKYLENSResult result) {
   Serial.println(result.ID);
   Serial.print("BENTUK:");
   Serial.println(bentuk);
-  /*lcd.setCursor(0, 1);
-  lcd.print("BENTUK:");
-  lcd.print(bentuk);
-  lcd.setCursor(0, 0);
-  lcd.print ("LEARNING ID:");
-  lcd.setCursor(12, 0);
-  lcd.print(result.ID);*/
   delay(500);
 }
