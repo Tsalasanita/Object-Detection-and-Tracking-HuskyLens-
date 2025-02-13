@@ -84,7 +84,6 @@ void printResult(HUSKYLENSResult result) {
   }
 }
 
-
   void driveBot(HUSKYLENSResult result)
   {
   //Posisi Koordinat Huskylens
@@ -105,27 +104,6 @@ void printResult(HUSKYLENSResult result) {
     servo_10.angle(abs((constrain(mind_n_currenty, 0, 120))));
   }
   }
-/*
-void driveBot(HUSKYLENSResult result)
-{
-  //Posisi Koordinat Huskylens
-  if (result.xCenter > 170) {
-    mind_n_currentx -= 1;
-    servo_9.angle(abs((constrain(mind_n_currentx, 0, 120))));
-  }
-  else if ((result.xCenter > 30) && (result.xCenter < 130)) {
-    mind_n_currentx += 1;
-    servo_9.angle(abs((constrain(mind_n_currentx, 0, 120))));
-  }
-  else if (result.yCenter > 130) {
-    mind_n_currenty += 1;
-    servo_10.angle(abs((constrain(mind_n_currenty, 0, 120))));
-  }
-  else if ((result.yCenter > 20) && (result.yCenter < 120)) {
-    mind_n_currenty -= 1;
-    servo_10.angle(abs((constrain(mind_n_currenty, 0, 120))));
-  }
-}*/
 
 void tampilan(HUSKYLENSResult result) {
   //Tampilan LCD
@@ -137,13 +115,4 @@ void tampilan(HUSKYLENSResult result) {
   lcd.setCursor(0, 1);
   lcd.print ("OBJEK TERDETEKSI");
   delay(10);
-  /*
-  lcd.print("X:");
-  lcd.setCursor(8, 1);
-  lcd.print(" Y:");
-  lcd.setCursor(2, 1);
-  lcd.print(mind_n_currentx);
-  lcd.setCursor(11, 1);
-  lcd.print(mind_n_currenty);*/
-  
 }
